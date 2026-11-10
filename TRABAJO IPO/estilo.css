@@ -1,0 +1,107 @@
+:root {
+  --fondo: #e9eef2;
+  --tinta: #1b2430;
+  --arena: #cdb892;
+  --cobalto: #1f4fd8;
+  --suave: #f7f9fb;
+  --linea: #c5ced6;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--tinta);
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+h1, h2, h3, .marca, nav a, th, dt, .etiqueta {
+  font-family: "Sora", Arial, sans-serif;
+}
+
+a { color: var(--cobalto); }
+:focus-visible { outline: 3px solid var(--cobalto); outline-offset: 3px; }
+
+/* Barra superior */
+.barra {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: .5rem 2rem;
+  padding: .8rem 2rem;
+  background: var(--tinta);
+  color: var(--suave);
+}
+.marca { color: var(--arena); font-weight: 800; text-decoration: none; }
+nav { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; }
+nav a { color: var(--suave); text-decoration: none; font-size: .9rem; padding: .2rem 0; border-bottom: 2px solid transparent; }
+nav a:hover { border-bottom-color: var(--arena); }
+
+/* Portada */
+.portada {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center;
+  max-width: 1100px; margin: 0 auto; padding: 4rem 2rem 3rem;
+}
+.etiqueta { margin: 0 0 1rem; font-size: .9rem; font-weight: 600; color: var(--cobalto); }
+h1 { margin: 0 0 1.2rem; font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.05; font-weight: 800; letter-spacing: -.02em; }
+.entradilla { font-size: 1.25rem; max-width: 34ch; margin: 0; }
+
+/* La lente: forma de la pantalla de las gafas */
+.lente {
+  margin: 0; aspect-ratio: 1; width: 100%;
+  background: var(--arena);
+  border-radius: 38% 62% 55% 45% / 45% 40% 60% 55%;
+  border: 10px solid var(--tinta);
+  overflow: hidden;
+}
+.lente img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Bloques */
+.bloque { max-width: 1100px; margin: 0 auto; padding: 3.5rem 2rem; border-top: 1px solid var(--linea); }
+h2 { margin: 0 0 1.2rem; font-size: 1.9rem; font-weight: 800; letter-spacing: -.01em; }
+h3 { margin: 0 0 .5rem; font-size: 1.05rem; font-weight: 600; }
+.bloque > p { max-width: 68ch; }
+
+/* Por qué: cuatro ideas */
+.rejilla { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
+.rejilla article { padding: 1.4rem 1.6rem; background: var(--suave); border-left: 6px solid var(--cobalto); }
+.rejilla p { margin: 0; font-size: 1rem; }
+
+/* Pulsera */
+.bloque-pulsera { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: center; }
+.bloque-pulsera p { max-width: 60ch; }
+.marco { margin: 0; }
+.marco img { width: 100%; display: block; border-radius: 1.2rem; background: var(--arena); }
+.marco figcaption { margin-top: .7rem; font-size: .9rem; font-style: italic; }
+
+/* Tabla de evolución */
+.tabla-ancha { overflow-x: auto; margin-top: 1.5rem; }
+table { width: 100%; min-width: 720px; border-collapse: collapse; background: var(--suave); font-size: .98rem; line-height: 1.5; }
+caption { text-align: left; padding: 0 0 .8rem; font-family: "Sora", Arial, sans-serif; font-size: .9rem; font-weight: 600; }
+th { background: var(--tinta); color: var(--suave); text-align: left; padding: .8rem 1rem; font-size: .9rem; }
+td { padding: .9rem 1rem; border-bottom: 1px solid var(--linea); vertical-align: top; }
+td:first-child { font-weight: 600; white-space: nowrap; }
+tbody tr:last-child { background: #dbe5fb; }
+tbody tr:last-child td { border-bottom: 3px solid var(--cobalto); }
+
+/* Ficha técnica */
+.ficha { margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 3rem; }
+.ficha div { padding: .9rem 0; border-bottom: 1px solid var(--linea); }
+dt { font-size: .9rem; font-weight: 600; color: var(--cobalto); }
+dd { margin: .2rem 0 0; }
+
+/* Pie */
+.pie { background: var(--tinta); color: var(--suave); padding: 2rem; text-align: center; font-size: .9rem; }
+.pie p { margin: 0; }
+
+/* Móvil */
+@media (max-width: 800px) {
+  .portada, .bloque-pulsera { grid-template-columns: 1fr; gap: 2rem; }
+  .portada { padding-top: 2.5rem; }
+  .lente { max-width: 420px; margin: 0 auto; }
+  .rejilla, .ficha { grid-template-columns: 1fr; }
+  .barra { padding: .8rem 1.2rem; }
+}
